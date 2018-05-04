@@ -21,7 +21,7 @@ pipeline
 	 agent {
 	 docker 
 	 {
-	 image '920995523917.dkr.ecr.us-east-1.amazonaws.com/container-image:node'
+	 image 'node:6-alpine'
          args '-u root -v $HOME/node_modules:/var/lib/jenkins/node_modules'
 	 }
 	 }
