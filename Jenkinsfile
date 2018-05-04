@@ -21,7 +21,7 @@ pipeline
 	 agent {
 	 docker 
 	 {
-	 image 'image 'node:6-alpine'
+	 image 'node:6-alpine'
          args '-v $HOME/node_modules:/var/lib/jenkins/node_modules'
 	 }
 	 }
