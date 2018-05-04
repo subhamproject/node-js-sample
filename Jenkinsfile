@@ -22,11 +22,16 @@ pipeline
 	 docker 
 	 {
 	 image '920995523917.dkr.ecr.us-east-1.amazonaws.com/container-image:node'
-     args '-v $HOME/node_modules:/var/lib/jenkins/node_modules'
+          args '-v $HOME/node_modules:/var/lib/jenkins/node_modules'
 	 }
 	 }
 	 steps {
-                sh 'npm install'
+		 
+                sh '''
+		#!/bin/bash
+	        export PATH=/usr/local/bin:$PATH
+		npm install
+		'''
                 dir("${env.WORKSPACE}") {
                     stash name: 'node_modules', includes: 'node_modules/'
 	            stash name: 'data', includes: '.'
