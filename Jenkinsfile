@@ -112,7 +112,7 @@ pipeline
         }
    	success {
 	// clear work space
-	deleteDir()
+	//deleteDir()
       // notify users when the Pipeline fails
       mail to: 'smandal@rythmos.com',
           subject: "Sucess: ${currentBuild.fullDisplayName}",
