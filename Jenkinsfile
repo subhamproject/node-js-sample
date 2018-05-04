@@ -35,7 +35,7 @@ pipeline
 		'''
                 dir("${env.WORKSPACE}") {
                     stash name: 'node_modules', includes: 'node_modules/'
-	            stash name: 'data', includes: '*.*'
+	            stash name: 'appdata', includes: '*.*'
                 }
             }
          }
@@ -49,7 +49,7 @@ pipeline
 	         dir("${env.WORKSPACE}") {
 		    sh 'ls -l'
                     unstash 'node_modules'
-		    unstash 'data'
+		    unstash 'appdata'
 		    sh 'ls -l'
                     }
                     // Build the docker image using a Dockerfile
