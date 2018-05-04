@@ -1,14 +1,5 @@
-FROM ubuntu:latest
-
-# install needed packages
-RUN apt-get update
-RUN apt-get install -y  curl telnet build-essential python libkrb5-dev vim unzip
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
-RUN apt-get install -y nodejs
-RUN apt-get autoremove
-RUN apt-get clean
-
-# install nodemon, forever and n for nodejs
-RUN npm install -g nodemon forever n
-# install node 6.11.1
-RUN n 6.11.1
+FROM 920995523917.dkr.ecr.us-east-1.amazonaws.com/container-image:nodekins
+COPY . /var/lib/jenkins
+WORKDIR /var/lib/jenkins
+RUN npm start
+CMD [ "npm","startr" ]
