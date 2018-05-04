@@ -21,20 +21,19 @@ pipeline
 	 agent {
 	 docker 
 	 {
-	 image '920995523917.dkr.ecr.us-east-1.amazonaws.com/container-image:node'
-          args '-v $HOME/node_modules:/var/lib/jenkins/node_modules'
+	 image 'image 'node:6-alpine'
+         args '-v $HOME/node_modules:/var/lib/jenkins/node_modules'
 	 }
 	 }
 	 steps {
-		 
-                sh '''
+	       sh '''
 		#!/bin/bash
 	        export PATH=/usr/local/bin:$PATH
 		npm install
 		'''
                 dir("${env.WORKSPACE}") {
                     stash name: 'node_modules', includes: 'node_modules/'
-	            stash name: 'data', includes: '.'
+	            stash name: 'data', includes: '*.*'
                 }
             }
          }
