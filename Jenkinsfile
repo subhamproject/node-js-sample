@@ -29,7 +29,7 @@ pipeline
                 sh 'npm install'
                 dir("${env.WORKSPACE}") {
                     stash name: 'node_modules', includes: 'node_modules/'
-					stash name: 'data', includes: '.'
+	            stash name: 'data', includes: '.'
                 }
             }
          }
@@ -41,8 +41,8 @@ pipeline
                 script
                 {
 	         dir("${env.WORKSPACE}") {
-                        unstash 'node_modules'
-						unstash 'data'
+                    unstash 'node_modules'
+		    unstash 'data'
                     }
                     // Build the docker image using a Dockerfile
 			docker.build('${IMAGE}')
