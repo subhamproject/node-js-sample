@@ -17,7 +17,7 @@ pipeline
     }
     stages
      {	  
-	stage('Maven Build') {
+	stage('Fetch Nodejs Dependency') {
 	 agent {
 	 docker 
 	 {
