@@ -100,6 +100,7 @@ pipeline
 	    RUN=$(docker ps -aq) >> /dev/null
 	    if [ -n "$RUN" ]
 	    then
+	    docker stop $RUN
 	    docker rm -f $RUN
 	    fi
 	    IMG=$(docker images -q -f dangling=true) >> /dev/null
