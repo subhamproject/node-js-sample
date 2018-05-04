@@ -22,7 +22,7 @@ pipeline
 	 docker 
 	 {
 	 image '920995523917.dkr.ecr.us-east-1.amazonaws.com/container-image:node'
-         args '-u root'
+         args '-u root -v $HOME/node_modules:/var/lib/jenkins/node_modules'
 	 }
 	 }
 	 steps {
