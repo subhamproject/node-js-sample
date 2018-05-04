@@ -22,7 +22,7 @@ pipeline
 	 docker 
 	 {
 	 image 'node:6-alpine'
-         args '-u root -v $HOME/node_modules:/var/lib/jenkins/node_modules'
+         args '-u root'
 	 }
 	 }
 	 steps {
