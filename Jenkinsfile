@@ -9,7 +9,7 @@ pipeline
     // Define Environemnt Variable 
     environment 
     {
-	VERSION = 'maven'
+	VERSION = 'node'
         PROJECT = 'rcx-test-vf'
         IMAGE = 'rcx-test-vf:node'
         ECRURL = 'https://920995523917.dkr.ecr.us-east-1.amazonaws.com/rcx-test-vf'
@@ -21,7 +21,7 @@ pipeline
 	 agent {
 	 docker 
 	 {
-	 image 'node:6-alpine'
+	 image '920995523917.dkr.ecr.us-east-1.amazonaws.com/container-image'
          args '-v $HOME/node_modules:/var/lib/jenkins/node_modules'
 	 }
 	 }
@@ -29,7 +29,7 @@ pipeline
 	       sh '''
 		#!/bin/bash
 	        export PATH=/usr/local/bin:$PATH
-		npm install
+		sudo npm install
 		'''
                 dir("${env.WORKSPACE}") {
                     stash name: 'node_modules', includes: 'node_modules/'
