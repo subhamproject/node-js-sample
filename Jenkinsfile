@@ -29,7 +29,7 @@ pipeline
 	       sh '''
 		#!/bin/bash
 	        export PATH=/usr/local/bin:$PATH
-		sudo npm install
+		npm install
 		'''
                 dir("${env.WORKSPACE}") {
                     stash name: 'node_modules', includes: 'node_modules/'
