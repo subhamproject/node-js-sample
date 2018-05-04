@@ -29,7 +29,9 @@ pipeline
 	       sh '''
 		#!/bin/bash
 	        export PATH=/usr/local/bin:$PATH
+		ls -lR
 		npm install
+		ls -lR
 		'''
                 dir("${env.WORKSPACE}") {
                     stash name: 'node_modules', includes: 'node_modules/'
@@ -47,6 +49,7 @@ pipeline
 	         dir("${env.WORKSPACE}") {
                     unstash 'node_modules'
 		    unstash 'data'
+		    sh 'ls -lR'
                     }
                     // Build the docker image using a Dockerfile
 			docker.build('${IMAGE}')
